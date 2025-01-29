@@ -8,7 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import kr.or.komca.komcacommoninterface.response_code.BaseResponseCode;
 import kr.or.komca.komcacommoninterface.response_code.ErrorCode;
 import kr.or.komca.komcacommoninterface.response_code.SuccessCode;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)  // 추가
 public abstract class BaseResponse<T> {
     @JsonProperty("errorCode")
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -29,6 +32,7 @@ public abstract class BaseResponse<T> {
     protected final T data;
     protected final Object errorDetail;
     protected final LocalDateTime timestamp = LocalDateTime.now();
+
 
     protected BaseResponse(BaseResponseCode baseResponseCode, T data, Object errorDetail) {
         if (baseResponseCode instanceof ErrorCode) {
