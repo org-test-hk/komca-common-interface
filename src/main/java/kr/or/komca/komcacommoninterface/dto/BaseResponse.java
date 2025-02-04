@@ -28,8 +28,4 @@ public abstract class BaseResponse {
         this.statusCode = statusCode;
         this.timestamp = LocalDateTime.now();
     }
-
-    // ResponseEntity로 변환하는 추상 메서드
-    public abstract ResponseEntity<? extends BaseResponse> toResponseEntity();
-
 }
