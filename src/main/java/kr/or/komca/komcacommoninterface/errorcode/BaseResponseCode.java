@@ -1,4 +1,4 @@
-package kr.or.komca.komcacommoninterface.response_code;
+package kr.or.komca.komcacommoninterface.errorcode;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
